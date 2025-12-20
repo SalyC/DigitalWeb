@@ -5,7 +5,6 @@
 1.2 add logo <br>
 1.3.0 beta add slider and some info<br>
 1.3.1 edit info<br>
-
 <br>
-New repository
-2.0.0 update all site and fix critical errors
+New repository <br>
+<br>2.0.0 update all site and fix critical errors
