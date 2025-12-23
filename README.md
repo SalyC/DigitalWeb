@@ -7,4 +7,5 @@
 1.3.1 edit info<br>
 <br>
 New repository <br>
-<br>2.0.0 update all site and fix critical errors
+<br>1.4.0 update all site and fix critical errors
+<br>1.5.0 (prerelease) add chat, snowfall, dark/light theme etc.
