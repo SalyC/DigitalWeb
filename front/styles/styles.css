@@ -1,132 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto+Slab:wght@300;400;500;600&family=Open+Sans:wght@300;400;500;600&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Open Sans', 'Segoe UI', sans-serif;
-}
-
-body {
-    line-height: 1.6;
-    color: rgba(44, 7, 53, 1);
-    background-color: #030114;
-}
-
-a{
-    color: rgba(44, 7, 53, 1);
-    text-decoration: none;
-}
-
-/* !!Header */
-.header {
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-}
-
-.header-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 70px;
-    
-}
-
-.logo-left, .logo-right {
-    flex: 0 0 auto;
-    
-}
-
-.logo {
-    height: 160px;
-    width: auto;
-}
-
-.nav-center {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-}
-
-.nav-link {
-    color: #d1d0d0;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 16px;
-    padding: 8px 16px;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-}
-
-.nav-link:hover {
-    background-color: #dcd9d9;
-    color: #007bff;
-}
-
-/* !!Dropdown */
-.dropdown {
-    
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-btn {
-    color: #d1d0d0;
-    background: none;
-    border: none;
-    font-size: 16px;
-    font-weight: 500;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    transition: all 0.3s ease;
-}
-
-.dropdown-btn:hover {
-    background-color: #f0f0f0;
-    color: #007bff;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #fff;
-    min-width: 200px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
-    z-index: 1;
-    top: 100%;
-    left: 0;
-    overflow: hidden;
-}
-
-.dropdown-content a {
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    transition: all 0.3s ease;
-}
-
-.dropdown-content a:hover {
-    background-color: #f0f0f0;
-    color: #007bff;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
 
 /* !!Main content */
 .main {
@@ -239,6 +110,10 @@ a{
     height: 50vh;
     max-height: 400px;
     background-color: transparent;
+}
+
+.chat{
+    margin: auto;
 }
 
 /* !!Footer */

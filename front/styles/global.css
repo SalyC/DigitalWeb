@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto+Slab:wght@300;400;500;600&family=Open+Sans:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', 'Segoe UI', sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    color: rgba(44, 7, 53, 1);
+    background-color: #030114;
+}
+
+a{
+    color: rgba(44, 7, 53, 1);
+    text-decoration: none;
+}
