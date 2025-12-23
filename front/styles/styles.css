@@ -140,7 +140,9 @@
 
 /* !!adaptive */
 @media (max-width: 992px) {
-    .logo-right{
+    .logo-right{    .mobile-nav {
+        display: none;
+    }
         display: none;
     }
 
@@ -168,6 +170,8 @@
 }
 
 @media (max-width: 768px) {
+
+
     .header-container {
         flex-direction: column;
         height: auto;
