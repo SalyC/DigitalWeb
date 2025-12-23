@@ -9,3 +9,4 @@
 New repository <br>
 <br>1.4.0 update all site and fix critical errors
 <br>1.5.0 (prerelease) add chat, snowfall, dark/light theme etc.
+<br>1.6.0 (prerelease last vers) add quest tree etc.
