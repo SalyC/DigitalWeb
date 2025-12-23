@@ -1,7 +1,7 @@
 class ChatAutocomplete {
     constructor() {
         this.commands = [
-            '/help', '/clear', '/theme light', '/theme dark', '/time',
+            '/help', '/clear', '/theme light', '/theme dark', '/time', '/quest',
             '/members', '/projects', '/contact', '/about', '/snow toggle', '/snow status', '/snow intensity low', '/snow intensity medium', '/snow intensity high', '/snow intensity storm'
         ];
         this.init();

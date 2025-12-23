@@ -10,7 +10,8 @@ class ChatWidget {
             '/projects': this.showProjects.bind(this),
             '/contact': this.showContact.bind(this),
             '/about': this.showAbout.bind(this),
-            '/snow': this.toggleSnow.bind(this)
+            '/snow': this.toggleSnow.bind(this),
+            '/quest': this.showQuest.bind(this)  // Новая команда!
         };
         
         this.inactivityTimer = null;
@@ -130,7 +131,8 @@ class ChatWidget {
         const welcomeMessage = `
             <div class="message system">
                 ❄️ Добро пожаловать в командный чат!<br>
-                Все команды: <strong>/help</strong>
+                Все команды: <strong>/help</strong><br>
+                Достижения: <strong>/quest</strong>
             </div>
         `;
         this.addMessage(welcomeMessage, 'system');
@@ -177,10 +179,33 @@ class ChatWidget {
         const command = parts[0].toLowerCase();
         const args = parts.slice(1);
 
+        // Отправляем событие для системы достижений
+        if (window.achievementSystem) {
+            window.achievementSystem.handleChatCommand(message);
+        }
+        
+        // Отправляем событие для темы
+        if (command === '/theme' && window.achievementSystem) {
+            const theme = args[0] || 'toggle';
+            if (theme === 'light' || theme === 'dark') {
+                window.achievementSystem.handleThemeChange(theme);
+            }
+        }
+        
+        // Отправляем событие для снега
+        if (command === '/snow' && window.achievementSystem) {
+            window.achievementSystem.handleSnowChange();
+        }
+
         if (this.commands[command]) {
             this.commands[command](args);
         } else {
-            this.addMessage(`Неизвестная команда: ${command}. Введите /help для списка команд`, 'bot');
+            // Проверяем команды режима Бога
+            if (window.achievementRewards && command in window.achievementRewards.commands) {
+                window.achievementRewards.commands[command](args);
+            } else {
+                this.addMessage(`Неизвестная команда: ${command}. Введите /help для списка команд`, 'bot');
+            }
         }
     }
 
@@ -198,10 +223,25 @@ class ChatWidget {
                     <li><strong>/contact</strong> - Контактная информация</li>
                     <li><strong>/about</strong> - О нашем портфолио</li>
                     <li><strong>/snow [stop/toggle/intensity]</strong> - Управление снегопадом</li>
+                    <li><strong>/quest</strong> - Показать достижения и награды</li>
                 </ul>
+                <p style="margin-top: 10px; font-size: 12px; color: #666;">
+                    🔓 Разблокируйте все достижения для доступа к командам режима Бога!
+                </p>
             </div>
         `;
         this.addMessage(helpMessage, 'bot');
+        this.resetInactivityTimer();
+    }
+
+    // НОВАЯ КОМАНДА /quest
+    showQuest() {
+        if (window.achievementSystem) {
+            window.achievementSystem.showAchievementsPanel();
+            this.addMessage('🏆 Открываю панель достижений...', 'bot');
+        } else {
+            this.addMessage('❌ Система достижений не загружена. Попробуйте обновить страницу.', 'bot');
+        }
         this.resetInactivityTimer();
     }
 

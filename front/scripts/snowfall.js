@@ -152,28 +152,39 @@ class Snowfall {
         }
     }
 
+    setIntensity(level) {
+    const levels = {
+        'low': { density: 30, speed: 0.8, size: 1.5 },
+        'medium': { density: 50, speed: 1, size: 2 },
+        'high': { density: 80, speed: 1.2, size: 2.5 },
+        'storm': { density: 120, speed: 1.5, size: 3 }
+    };
+    
+    if (levels[level]) {
+        this.settings = { ...this.settings, ...levels[level] };
+        this.createSnowflakes();
+        
+        // Отправляем событие для достижений
+        if (window.achievementSystem) {
+            window.dispatchEvent(new CustomEvent('snowChanged'));
+        }
+        
+        return true;
+    }
+    return false;
+}
+
     toggle() {
         if (this.isActive) {
             this.stopAnimation();
         } else {
             this.startAnimation();
         }
-    }
-
-    setIntensity(level) {
-        const levels = {
-            'low': { density: 30, speed: 0.8, size: 1.5 },
-            'medium': { density: 50, speed: 1, size: 2 },
-            'high': { density: 80, speed: 1.2, size: 2.5 },
-            'storm': { density: 120, speed: 1.5, size: 3 }
-        };
         
-        if (levels[level]) {
-            this.settings = { ...this.settings, ...levels[level] };
-            this.createSnowflakes();
-            return true;
+        // Отправляем событие для достижений
+        if (window.achievementSystem) {
+            window.dispatchEvent(new CustomEvent('snowChanged'));
         }
-        return false;
     }
 
     destroy() {

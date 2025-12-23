@@ -1,0 +1,313 @@
+/* Анимации для наград */
+@keyframes slideDown {
+    from { transform: translateX(-50%) translateY(-100%); opacity: 0; }
+    to { transform: translateX(-50%) translateY(0); opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateX(-50%) translateY(0); opacity: 1; }
+    to { transform: translateX(-50%) translateY(-100%); opacity: 0; }
+}
+
+@keyframes scaleIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes celebrate {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.05) rotate(1deg); }
+    50% { transform: scale(1) rotate(-1deg); }
+    75% { transform: scale(1.05) rotate(1deg); }
+    100% { transform: scale(1) rotate(0); }
+}
+
+@keyframes rainbow {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
+}
+
+/* Стили для эпических уведомлений */
+.epic-reward-content .epic-icon {
+    font-size: 80px;
+    margin-bottom: 20px;
+    animation: pulse 2s infinite;
+}
+
+.epic-reward-content .epic-title {
+    font-size: 36px;
+    font-weight: bold;
+    background: linear-gradient(45deg, #FFD700, #FF6B6B, #4ECDC4, #9D00FF);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 10px;
+}
+
+.epic-reward-content .epic-subtitle {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.epic-reward-content .epic-description {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.rewards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.reward-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background: rgba(0,0,0,0.05);
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.reward-item .reward-icon {
+    font-size: 16px;
+}
+
+/* Стили для секретной лаборатории */
+.secret-lab {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 800px;
+    max-height: 80vh;
+    background: var(--card-bg, white);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    z-index: 10005;
+    overflow: hidden;
+}
+
+.lab-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background: linear-gradient(135deg, #9D00FF, #00FF9D);
+    color: white;
+}
+
+.lab-header h2 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.close-lab {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background 0.2s ease;
+}
+
+.close-lab:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.lab-content {
+    padding: 30px;
+    overflow-y: auto;
+    max-height: calc(80vh - 80px);
+}
+
+.lab-section {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--border-light, #eee);
+}
+
+.lab-section h3 {
+    margin: 0 0 15px 0;
+    color: var(--text-primary, #333);
+    font-size: 18px;
+}
+
+.theme-buttons,
+.turbo-controls,
+.games-buttons,
+.experiment-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.theme-btn,
+.turbo-btn,
+.game-btn,
+.experiment-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background: var(--primary-color, #419FD9);
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.theme-btn:hover,
+.turbo-btn:hover,
+.game-btn:hover,
+.experiment-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.effects-controls {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.effects-controls label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding: 10px;
+    background: var(--card-bg-light, #f8f9fa);
+    border-radius: 8px;
+    transition: background 0.2s ease;
+}
+
+.effects-controls label:hover {
+    background: var(--hover-bg, #e9ecef);
+}
+
+/* Специальные темы */
+[data-theme="gold"] {
+    --primary-color: #FFD700 !important;
+    --secondary-color: #FFA500 !important;
+    --background: linear-gradient(135deg, #1a1a1a, #2a2a2a) !important;
+    --text-color: #FFD700 !important;
+    --card-bg: rgba(255, 215, 0, 0.1) !important;
+}
+
+[data-theme="neon"] {
+    --primary-color: #00FF9D !important;
+    --secondary-color: #9D00FF !important;
+    --background: linear-gradient(135deg, #000, #111) !important;
+    --text-color: #00FF9D !important;
+    --card-bg: rgba(0, 255, 157, 0.1) !important;
+}
+
+[data-theme="matrix"] {
+    --primary-color: #00FF41 !important;
+    --secondary-color: #008F11 !important;
+    --background: #000 !important;
+    --text-color: #00FF41 !important;
+    --card-bg: rgba(0, 255, 65, 0.05) !important;
+}
+
+/* Радужный режим */
+.rainbow-mode {
+    animation: rainbow 3s linear infinite !important;
+}
+
+/* Режим инвертированных цветов */
+.inverted-colors {
+    filter: invert(1) hue-rotate(180deg);
+}
+
+/* Пикселизация */
+.pixelated {
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+/* Эффект тряски */
+.shake-effect {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+/* Глитч-эффект */
+.glitch-effect {
+    animation: glitch 0.3s infinite;
+}
+
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .rewards-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .theme-buttons,
+    .turbo-controls,
+    .games-buttons,
+    .experiment-buttons {
+        flex-direction: column;
+    }
+    
+    .effects-controls {
+        grid-template-columns: 1fr;
+    }
+    
+    .god-mode-btn,
+    .secret-lab-btn,
+    .mini-game-btn {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .secret-lab-btn {
+        bottom: 80px;
+    }
+    
+    .mini-game-btn {
+        bottom: 140px;
+    }
+}

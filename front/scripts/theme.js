@@ -1,20 +1,12 @@
 class ThemeSwitcher {
     constructor() {
-        this.themes = ['light', 'dark'];
         this.currentTheme = this.getSavedTheme();
-        this.init();
-    }
-
-    init() {
         this.applyTheme();
     }
 
     getSavedTheme() {
         const saved = localStorage.getItem('theme');
-        if (saved && this.themes.includes(saved)) {
-            return saved;
-        }
-        return 'dark';
+        return saved === 'light' ? 'light' : 'dark';
     }
 
     applyTheme() {
@@ -22,11 +14,20 @@ class ThemeSwitcher {
     }
 
     setTheme(theme) {
-        if (this.themes.includes(theme)) {
+        if (theme === 'light' || theme === 'dark') {
             this.currentTheme = theme;
             this.applyTheme();
             localStorage.setItem('theme', theme);
+            
+            if (window.achievementSystem) {
+                window.dispatchEvent(new CustomEvent('themeChanged', {
+                    detail: { theme }
+                }));
+            }
+            
+            return true;
         }
+        return false;
     }
 }
 

@@ -23,26 +23,26 @@ function animatePageElements() {
     });
 }
 
-// function initDropdown() {
-//     const dropdownBtn = document.querySelector('.dropdown-btn');
-//     const dropdownContent = document.querySelector('.dropdown-content');
+function initDropdown() {
+    const dropdownBtn = document.querySelector('.dropdown-btn');
+    const dropdownContent = document.querySelector('.dropdown-content');
     
-//     if (dropdownBtn && dropdownContent) {
-//         dropdownBtn.addEventListener('click', function(e) {
-//             e.stopPropagation();
-//             dropdownContent.style.display = 
-//                 dropdownContent.style.display === 'block' ? 'none' : 'block';
-//         });
+    if (dropdownBtn && dropdownContent) {
+        dropdownBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownContent.style.display = 
+                dropdownContent.style.display === 'block' ? 'none' : 'block';
+        });
         
-//         document.addEventListener('click', function() {
-//             dropdownContent.style.display = 'none';
-//         });
+        document.addEventListener('click', function() {
+            dropdownContent.style.display = 'none';
+        });
         
-//         dropdownContent.addEventListener('click', function(e) {
-//             e.stopPropagation();
-//         });
-//     }
-// }
+        dropdownContent.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+    }
+}
 
 function initContactInteractions() {
     const contactItems = document.querySelectorAll('.contact-item');
