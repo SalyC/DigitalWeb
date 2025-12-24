@@ -140,9 +140,7 @@
 
 /* !!adaptive */
 @media (max-width: 992px) {
-    .logo-right{    .mobile-nav {
-        display: none;
-    }
+    .logo-right{
         display: none;
     }
 
